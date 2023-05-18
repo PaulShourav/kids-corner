@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink,Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AuthContext } from '../../providers/AuthProvider';
+
 const Navbar = () => {
+    const { user, logout} = useContext(AuthContext);
+    // console.log(user);
+    const handleLogout = () => {
+        logout()
+            .then(() => {
+                // Sign-out successful.
+            }).catch((error) => {
+                console.log(error);
+            });
+    }
     return (
         <header className='bg-base-300'>
             <div className="navbar my-container ">
@@ -26,10 +39,24 @@ const Navbar = () => {
                         <li className='nav-item'><NavLink to={'/all-toys'} className={({ isActive }) => isActive ? "active" : ""}>All Toys</NavLink></li>
                         <li className='nav-item'><NavLink to={'/add-toys'} className={({ isActive }) => isActive ? "active" : ""}>Add Toys</NavLink></li>
                         <li className='nav-item'><NavLink to={'/blog'} className={({ isActive }) => isActive ? "active" : ""}>Blogs</NavLink></li>
+
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                {
+                            user ? <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className=" tooltip tooltip-left btn btn-outline btn-primary btn-circle avatar flex justify-center" data-tip={user.displayName && user.displayName}>
+                                    <FontAwesomeIcon icon="fa-solid fa-user" className='text-base' beat />
+                                </label>
+                                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+
+                                    <li><Link onClick={handleLogout}><FontAwesomeIcon icon="fa-solid fa-arrow-up-from-bracket" className='me-2' />Logout</Link></li>
+                                </ul>
+                            </div> : <div className='flex text-lg'> 
+                                <NavLink className={({ isActive }) => isActive ? 'active-link' : ''} to='/login'>Login</NavLink>
+                                <NavLink className={({ isActive }) => isActive ? 'btn btn-sm  btn-primary ms-4' : 'btn btn-sm btn-outline btn-primary ms-4'} to='/register'>Register <FontAwesomeIcon icon="fa-solid fa-user" className='ms-2' /></NavLink> 
+                                </div>
+                        }
                 </div>
             </div>
         </header>
