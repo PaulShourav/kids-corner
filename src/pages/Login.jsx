@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link,  useNavigate } from 'react-router-dom';
+import { Link,  useLocation,  useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
     const { user, logIn, googleLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    // const location = useLocation();
-    // console.log(location);
-    // const from = location.state?.from?.pathname || '/'
+    const location = useLocation();
+    console.log(location);
+    const from = location.state?.from?.pathname || '/'
     const handleLogin = e => {
         e.preventDefault();
         setError('');
@@ -20,8 +20,8 @@ const Login = () => {
                 // Signed in 
                 const result = userCredential.user;
                 form.reset();
-                // navigate(from, { replace: true })
-                navigate('/')
+                navigate(from, { replace: true })
+                
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -33,8 +33,8 @@ const Login = () => {
         googleLogin()
             .then((result) => {
                 const user = result.user;
-                   // navigate(from, { replace: true })
-                   navigate('/')
+                   navigate(from, { replace: true })
+                   
             })
             .catch((error) => {
                 console.log(error)
