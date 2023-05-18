@@ -15,7 +15,7 @@ const Navbar = () => {
             });
     }
     return (
-        <header className='bg-base-300'>
+        <header className='bg-cyan-400'>
             <div className="navbar my-container ">
                 <div className="navbar-start ">
                     <div className="dropdown">
@@ -30,7 +30,7 @@ const Navbar = () => {
                             <li><NavLink to={'/blog'} className={({ isActive }) => isActive ? "active" : ""}>Blogs</NavLink></li>
                         </ul>
                     </div>
-                    <Link to={'/'} className=" font-bold text-2xl">Kids Corner</Link>
+                    <Link to={'/'} className=" font-bold text-2xl"><FontAwesomeIcon icon="fa-solid fa-truck-monster" /> Kids Corner</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex gap-4 text-lg px-1  ">
@@ -45,7 +45,7 @@ const Navbar = () => {
                 <div className="navbar-end">
                 {
                             user ? <div className="dropdown dropdown-end">
-                                <label tabIndex={0} className=" tooltip tooltip-left btn btn-outline btn-primary btn-circle avatar flex justify-center" data-tip={user.displayName && user.displayName}>
+                                <label tabIndex={0} className=" tooltip tooltip-left btn btn-outline btn-secondary btn-circle avatar flex justify-center" data-tip={user.displayName && user.displayName}>
                                     <FontAwesomeIcon icon="fa-solid fa-user" className='text-base' beat />
                                 </label>
                                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

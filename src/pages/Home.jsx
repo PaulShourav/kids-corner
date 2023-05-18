@@ -1,9 +1,12 @@
 import React from 'react';
+import Banner from './shared/Banner';
 
 const Home = () => {
     return (
         <>
-       <p>home</p>
+      <section>
+        <Banner></Banner>
+      </section>
         
         </>
     );
