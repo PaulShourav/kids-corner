@@ -5,7 +5,9 @@ import Rating from 'react-rating';
 const ToyCard = ({ toy }) => {
 
     const { _id, image, name, price, rating } = toy;
-    console.log(toy);
+    const handleDetails=(_id)=>{
+        console.log(_id);
+    }
     return (
         <div className="card bg-base-100 shadow-xl">
             <figure className="px-10 pt-10 ">
@@ -24,7 +26,7 @@ const ToyCard = ({ toy }) => {
                     />
                 </p>
                 <div className=" text-right">
-                    <button className="btn btn-sm btn-circle btn-outline  btn-secondary">
+                    <button className="btn btn-sm btn-circle btn-outline  btn-secondary" onClick={()=>handleDetails(_id)}>
                     <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
                     </button>
                 </div>

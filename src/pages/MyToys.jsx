@@ -2,9 +2,7 @@ import React from 'react';
 
 const MyToys = () => {
     return (
-        <div>
-            my toys
-        </div>
+        <p>my-toy</p>
     );
 };
 

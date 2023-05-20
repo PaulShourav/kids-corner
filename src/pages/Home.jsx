@@ -25,13 +25,13 @@ const Home = () => {
       <section className='my-container mt-32 mb-48'>
         <p className='font-bold text-3xl md:text-4xl text-center mb-8'>Shop by Category</p>
         <div className='flex justify-center'>
-          <div className={`tab ${tabChange=='avengers'?"bg-teal-500":""}`} onClick={()=>setTabChange('avengers')}>
+          <div className={`tab ${tabChange=='avengers'?"bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ":""}`} onClick={()=>setTabChange('avengers')}>
           Avengers
           </div>
-          <div className={`tab ${tabChange=='transformers'?"bg-teal-500":""}`} onClick={()=>setTabChange('transformers')}>
+          <div className={`tab ${tabChange=='transformers'?"bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ":""}`} onClick={()=>setTabChange('transformers')}>
           Transformers
           </div>
-          <div className={`tab ${tabChange=='star wars'?"bg-teal-500":""}`}  onClick={()=>setTabChange('star wars')}>
+          <div className={`tab ${tabChange=='star wars'?"bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ":""}`}  onClick={()=>setTabChange('star wars')}>
           Star wars
           </div>
         </div>
