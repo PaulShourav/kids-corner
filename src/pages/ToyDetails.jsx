@@ -11,7 +11,7 @@ const ToyDetails = () => {
     return (
         <>
          <div className="my-container min-h-screen my-28 px-9">
-            <div className="flex gap-7 flex-col lg:flex-row">
+            <div className="flex gap-10 flex-col lg:flex-row">
                 <div className='w-full md:w-1/3'>
                     <img src={image} className=" rounded-lg shadow-2xl" />
                 </div>

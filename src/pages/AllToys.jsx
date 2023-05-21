@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
@@ -12,9 +13,7 @@ const AllToys = () => {
             })
 
     }, [])
-    const handleDetails = (_id) => {
-        console.log(_id);
-    }
+   
     return (
         <section className='my-container my-28'>
             <div className='flex items-center justify-end mb-7 '>
@@ -59,9 +58,9 @@ const AllToys = () => {
                                     <td>{toy.price}৳</td>
                                     <td>{toy.quantity}</td>
                                     <td>
-                                        <button className="btn btn-sm btn-circle btn-outline  btn-secondary" onClick={() => handleDetails(toy._id)}>
-                                            <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
-                                        </button>
+                                    <Link to={`/details/${toy._id}`}  className="btn btn-sm btn-circle btn-outline  btn-secondary" >
+                    <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+                    </Link>
                                     </td>
                                 </tr>
                             </>)
