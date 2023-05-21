@@ -1,14 +1,24 @@
 import React, { useContext, useState } from 'react';
 import { Link,  useLocation,  useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
     const { user, logIn, googleLogin } = useContext(AuthContext);
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
     console.log(location);
     const from = location.state?.from?.pathname || '/'
+    // console.log(from.split('/')[1]);
+    // console.log(error);
+    if (error==null) {
+        if (from.split('/')[1] =='details') {
+            toast.success('You have to log in first to view details')
+            
+        }
+    }
+   
     const handleLogin = e => {
         e.preventDefault();
         setError('');
@@ -26,7 +36,7 @@ const Login = () => {
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage)
-                console.log(errorMessage);
+                // console.log(errorMessage);
             });
     };
     const handleGoogleAuth = () => {
@@ -54,8 +64,8 @@ const Login = () => {
                     <div className="card-actions">
                         <Link to='/register'>Create new account?</Link>
                     </div>
-                    <button onClick={handleGoogleAuth} className="btn btn-primary"> Google</button>
                 </form>
+                    <button onClick={handleGoogleAuth} className="btn btn-primary"> Google</button>
             </div>
         </div>
 

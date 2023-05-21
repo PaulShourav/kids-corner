@@ -19,7 +19,7 @@ const AllToys = () => {
         <section className='my-container my-28'>
             <div className='flex items-center justify-end mb-7 '>
                 <input type="text" placeholder="Type here" className="input input-sm input-bordered  w-full max-w-xs" />
-                <button className="btn btn-sm btn-square btn-secondary ">
+                <button className="btn btn-sm btn-square btn-secondary">
                     <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
                 </button>
             </div>
