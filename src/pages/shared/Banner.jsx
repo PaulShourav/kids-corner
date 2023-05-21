@@ -1,47 +1,51 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-cards";
+import "../../styles.css";
+
+// import required modules
+import { EffectCards } from "swiper";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Banner = () => {
     return (
-        <div className="carousel w-full">
-            <div id="slide1" className="carousel-item relative w-full">
-                <img src="/public/images/hero-bg.png" className="w-full" />
-                <div className="my-container absolute flex gap-11 md:justify-between items-center transform -translate-y-1/2 md:left-5 md:right-5 top-1/2  ">
-                    <div className='md:w-1/2 text-white text-center md:text-left '  >
-                        <p className='font-bold text-lg md:text-4xl ' >BEST TOYS FOR <br /> YOUR KIDS</p>
-                        <p className='my-2 md:my-5 text-sm md:text-base'>Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? <span className='hidden md:inline-flex'>Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi</span>.</p>
-                        <button className="md:btn btn-sm btn-active btn-secondary">Button</button>
-                    </div>
-                    <div className='hidden md:flex   md:w-1/2' >
-
-                    <img src="/public/images/slider-img.png" className=' md:w-full md:h-full' alt="" />
+        <div className='bg-lime-100'>
+            <div className='my-container'>
+                <div className='min-h-screen flex justify-center items-center'>
+                    <div className=' flex   flex-col md:flex-row '>
+                        <div className='basis-1/2'>
+                            <p className='font-bold text-lg md:text-4xl ' >BEST TOYS FOR <br /> YOUR KIDS</p>
+                            <p className='my-2 md:my-5 text-sm md:text-base'>Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.</p>
+                            <button className="md:btn btn-sm btn-active btn-secondary">Button<FontAwesomeIcon icon="fa-solid fa-arrow-right" className='ms-2' beat /></button>
+                        </div>
+                        <div className='basis-1/2'>
+                            <Swiper
+                                effect={"cards"}
+                                grabCursor={true}
+                                modules={[EffectCards]}
+                                className="mySwiper"
+                            >
+                                <SwiperSlide>
+                                    <img src="/images/avengers-1.png" className='py-10' alt="" />
+                                </SwiperSlide>
+                                <SwiperSlide><img src="/images/avengers-2.png" className='py-10' alt="" /></SwiperSlide>
+                                <SwiperSlide><img src="/images/avengers-3.png" className='py-10' alt="" /></SwiperSlide>
+                                <SwiperSlide><img src="/images/starwars-2.png" className='py-10' alt="" /></SwiperSlide>
+                                <SwiperSlide><img src="/images/avengers-5.png" className='py-10' alt="" /></SwiperSlide>
+                                <SwiperSlide><img src="/images/avengers-6.png" className='py-10' alt="" /></SwiperSlide>
+                                <SwiperSlide><img src="/images/transformers-1.png" className='py-10' alt="" /></SwiperSlide>
+                                <SwiperSlide><img src="/images/transformers-2.png" className='py-10' alt="" /></SwiperSlide>
+                                <SwiperSlide><img src="/images/starwars-1.png" className='py-10' alt="" /></SwiperSlide>
+                            </Swiper>
+                        </div>
                     </div>
                 </div>
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 
-                    <a href="#slide4" className="btn btn-circle">❮</a>
-                    <a href="#slide2" className="btn btn-circle">❯</a>
-                </div>
             </div>
-            <div id="slide2" className="carousel-item relative w-full">
-                <img src="/public/images/hero-bg.png" className="w-full" />
-                <div className="my-container absolute flex gap-11 md:justify-between items-center transform -translate-y-1/2 md:left-5 md:right-5 top-1/2  ">
-                    <div className='md:w-1/2 text-white text-center md:text-left '  >
-                        <p className='font-bold text-lg md:text-4xl ' >BEST TOYS FOR <br /> YOUR KIDS</p>
-                        <p className='my-2 md:my-5 text-sm md:text-base'>Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? <span className='hidden md:inline-flex'>Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi</span>.</p>
-                        <button className="md:btn btn-sm btn-active btn-secondary">Button</button>
-                    </div>
-                    <div className='hidden md:flex   md:w-1/2 ' >
-
-                    <img src="/public/images/slider-img1.png" className=' object-cover mb-36' alt="" />
-                    </div>
-                </div>
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide1" className="btn btn-circle">❮</a>
-                    <a href="#slide3" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-
         </div>
+
     );
 };
 
