@@ -10,6 +10,7 @@ const MyToys = () => {
 
     const [toys, setToys] = useState([]);
     const [editData, setEditData] = useState('');
+    const [update, setUpdate] = useState('');
     useEffect(() => {
         fetch(`http://localhost:5000/my-toys/${user.email}`)
             .then(res => res.json())
@@ -17,7 +18,7 @@ const MyToys = () => {
                 setToys(data);
             })
 
-    }, [])
+    }, [update])
     const handleDelete = (_id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -88,6 +89,7 @@ const MyToys = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
+                        setUpdate(data)
                         if (data.matchedCount > 0) {
                             Swal.fire(
                                 'Updated!',
@@ -96,11 +98,9 @@ const MyToys = () => {
                             )
                         }
                     })
-               
             }
         })
     }
-    console.log(toys);
     return (
         <section className='my-container my-28'>
             <div className='flex items-center justify-end mb-7 '>
