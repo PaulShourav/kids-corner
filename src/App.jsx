@@ -12,11 +12,9 @@ function App() {
   const { loading } = useContext(AuthContext);
   if (loading) {
     return (
-    <div className='max-h-screen'>
       <div className='mt-48 flex justify-center'>
        <HashLoader color="red" />
       </div>
-    </div>
     )
   }
 
