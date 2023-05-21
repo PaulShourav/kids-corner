@@ -4,21 +4,28 @@ import { Link } from 'react-router-dom';
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
+    const [searchTaxt, setSearchText] = useState('');
     useEffect(() => {
         fetch('http://localhost:5000/alltoys')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setToys(data);
             })
 
     }, [])
-   
+    const handleSearch=()=>{
+        fetch(`http://localhost:5000/search/${searchTaxt}`)
+            .then(res => res.json())
+            .then(data => {
+                setToys(data);
+            })
+}
+console.log(searchTaxt);
     return (
         <section className='my-container my-28'>
             <div className='flex items-center justify-end mb-7 '>
-                <input type="text" placeholder="Type here" className="input input-sm input-bordered  w-full max-w-xs" />
-                <button className="btn btn-sm btn-square btn-secondary">
+                <input type="text" onChange={(e)=>setSearchText(e.target.value)} placeholder="Search" className="input input-sm input-bordered  w-full max-w-xs" />
+                <button onClick={handleSearch} className="btn btn-sm btn-square btn-secondary">
                     <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
                 </button>
             </div>
@@ -37,8 +44,8 @@ const AllToys = () => {
                     </thead>
                     <tbody>
                         {
-                            toys?.map((toy, index) => <>
-                                <tr>
+                            toys?.map((toy, index) =>
+                                <tr key={toy._id}>
                                     <th>{index += 1}</th>
                                     <td>{toy.seller_name}</td>
                                     <td>
@@ -58,12 +65,12 @@ const AllToys = () => {
                                     <td>{toy.price}৳</td>
                                     <td>{toy.quantity}</td>
                                     <td>
-                                    <Link to={`/details/${toy._id}`}  className="btn btn-sm btn-circle btn-outline  btn-secondary" >
-                    <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
-                    </Link>
+                                        <Link to={`/details/${toy._id}`} className="btn btn-sm btn-circle btn-outline  btn-secondary" >
+                                            <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+                                        </Link>
                                     </td>
                                 </tr>
-                            </>)
+                            )
                         }
 
 
