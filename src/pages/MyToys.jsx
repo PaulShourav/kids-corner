@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -11,6 +10,7 @@ const MyToys = () => {
     const [toys, setToys] = useState([]);
     const [editData, setEditData] = useState('');
     const [update, setUpdate] = useState('');
+
     useEffect(() => {
         fetch(`http://localhost:5000/my-toys/${user.email}`)
             .then(res => res.json())
@@ -56,7 +56,6 @@ const MyToys = () => {
                 setEditData(data);
             })
     }
-    console.log(editData);
     const handleUpdate = (e) => {
         e.preventDefault()
         Swal.fire({

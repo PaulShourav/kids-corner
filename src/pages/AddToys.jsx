@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
 import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToys = () => {
     const { user } = useContext(AuthContext);
@@ -29,7 +29,11 @@ const AddToys = () => {
         .then(res=>res.json())
         .then(data=>{
             if(data.insertedId){
-                toast.success('Successfully Added')
+                Swal.fire(
+                    'Added',
+                    'Toy data successfully updated',
+                    'success'
+                  )
             }
         })
 
