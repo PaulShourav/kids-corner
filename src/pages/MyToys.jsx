@@ -3,8 +3,10 @@ import { AuthContext } from '../providers/AuthProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../hooks/useTitle';
 
 const MyToys = () => {
+    useTitle('MyToys-Kids Corner');
     const { user } = useContext(AuthContext);
 
     const [toys, setToys] = useState([]);

@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React  from 'react';
 import Rating from 'react-rating';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData} from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 
 const ToyDetails = () => {
+    useTitle('Details')
     const toy = useLoaderData();
     const { name, image, seller_name, seller_email, sub_category, price, rating, description } = toy;
 
-    console.log(toy);
     return (
         <>
          <div className="my-container min-h-screen my-28 px-9">

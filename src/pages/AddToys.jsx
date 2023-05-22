@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import useTitle from '../hooks/useTitle';
 
 const AddToys = () => {
+    useTitle('AddToy-Kids Corner')
     const { user } = useContext(AuthContext);
-    console.log(user);
+
     const handleSave=(e)=>{
         e.preventDefault();
         const form=e.target;
@@ -47,11 +49,11 @@ const AddToys = () => {
                     <div className='flex flex-col gap-7 md:flex-row justify-between'>
                         <div className='w-full'>
                             <label className='font-bold'>Toy Name</label>
-                            <input type="text" placeholder="Toy name" name='name' className="input input-bordered input-primary w-full " />
+                            <input required type="text" placeholder="Toy name" name='name' className="input input-bordered input-primary w-full " />
                         </div>
                         <div className='w-full'>
                             <label className='font-bold'>Image</label>
-                            <input type="text" placeholder="Toy Image URL" name='image' className="input input-bordered input-primary w-full " />
+                            <input required type="text" placeholder="Toy Image URL" name='image' className="input input-bordered input-primary w-full " />
                         </div>
 
                     </div>
@@ -68,25 +70,25 @@ const AddToys = () => {
                         </div>
                         <div className='md:w-1/4'>
                             <label className='font-bold'>Seller Name</label>
-                            <input type="text" defaultValue={user?.displayName} name='seller_name' disabled className="input input-bordered input-primary w-full " />
+                            <input required type="text" defaultValue={user?.displayName} name='seller_name' disabled className="input input-bordered input-primary w-full " />
                         </div>
                         <div className='md:w-1/2'>
                             <label className='font-bold'>Seller Email</label>
-                            <input type="text" defaultValue={user?.email} name='seller_email' disabled className="input input-bordered input-primary w-full " />
+                            <input required type="text" defaultValue={user?.email} name='seller_email' disabled className="input input-bordered input-primary w-full " />
                         </div>
                     </div>
                     <div className='flex flex-col gap-7 md:flex-row justify-between'>
                         <div className='w-full'>
                             <label className='font-bold'>Price</label>
-                            <input type="text" placeholder="Price" name='price' className="input input-bordered input-primary w-full " />
+                            <input required type="text" placeholder="Price" name='price' className="input input-bordered input-primary w-full " />
                         </div>
                         <div className='w-full'>
                             <label className='font-bold'>Rating</label>
-                            <input type="text" placeholder="Rating" name='rating' className="input input-bordered input-primary w-full " />
+                            <input required type="text" placeholder="Rating" name='rating' className="input input-bordered input-primary w-full " />
                         </div>
                         <div className='w-full'>
                             <label className='font-bold'>Quantity</label>
-                            <input type="text" placeholder="Quantity" name='quantity' className="input input-bordered input-primary w-full " />
+                            <input required type="text" placeholder="Quantity" name='quantity' className="input input-bordered input-primary w-full " />
                         </div>
                     </div>
 
@@ -94,7 +96,7 @@ const AddToys = () => {
                     <div className='w-full'>
                         <label className='font-bold'>Description</label>
                         <div>
-                            <textarea className="textarea textarea-primary w-full" name='description' placeholder="Description"></textarea>
+                            <textarea required className="textarea textarea-primary w-full" name='description' placeholder="Description"></textarea>
                         </div>
                     </div>
                     <button type='submit' className="btn btn-secondary">Save</button>

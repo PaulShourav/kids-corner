@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { updateProfile } from 'firebase/auth';
-// import { toast } from 'react-hot-toast';
+import useTitle from '../hooks/useTitle';
+
 
 const Register = () => {
+    useTitle('Register')
     const [showPassword,setShowPassword]=useState(true);
     const { user, createUser} = useContext(AuthContext);
     const [error,setError]=useState('');

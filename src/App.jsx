@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Outlet } from "react-router-dom"
+import { Outlet, ScrollRestoration } from "react-router-dom"
 import Navbar from "./pages/shared/Navbar"
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,7 @@ function App() {
   const { loading } = useContext(AuthContext);
   if (loading) {
     return (
-      <div className='mt-48 flex justify-center'>
+      <div className='mt-64 flex justify-center'>
        <HashLoader color="red" />
       </div>
     )
@@ -24,8 +24,9 @@ function App() {
       <Navbar />
       <Outlet />
       <Footer/>
+      <ScrollRestoration/>
       <Toaster
-        position="right-center"
+        position="top-right"
         reverseOrder={false}
       />
     </>

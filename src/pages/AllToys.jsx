@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 
 const AllToys = () => {
+    useTitle('AllToys-Kids Corner')
     const [toys, setToys] = useState([]);
     const [searchTaxt, setSearchText] = useState('');
     useEffect(() => {

@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../hooks/useTitle';
 
 const Blog = () => {
+    useTitle('Blog-Kids Corner')
     return (
         <div className='my-container my-28'>
             <p className='text-lg'><span className='font-bold'>Q1:</span>What is an access token and refresh token? How do they work and where should we store them on the client-side?</p>
