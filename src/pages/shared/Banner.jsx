@@ -14,7 +14,7 @@ const Banner = () => {
         <div className='bg-lime-100'>
             <div className='my-container'>
                 <div className='min-h-screen flex justify-center items-center'>
-                    <div className=' flex   flex-col md:flex-row '>
+                    <div className=' flex  gap-8 flex-col md:flex-row '>
                         <div className='basis-1/2'>
                             <p className='font-bold text-lg md:text-4xl ' >BEST TOYS FOR <br /> YOUR KIDS</p>
                             <p className='my-2 md:my-5 text-sm md:text-base'>Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.</p>

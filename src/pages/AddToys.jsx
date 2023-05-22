@@ -19,7 +19,7 @@ const AddToys = () => {
         const description=form.description.value;
         const toy={name,image,sub_category,seller_name,seller_email,price,rating,quantity,description}
         console.log(toy);
-        fetch("http://localhost:5000/add",{
+        fetch("https://kids-corner-server.vercel.app/add",{
             method:"POST",
             headers:{
               "content-type":"application/json"

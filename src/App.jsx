@@ -7,6 +7,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { Toaster } from 'react-hot-toast';
 import { AuthContext } from './providers/AuthProvider';
 import { HashLoader } from 'react-spinners';
+import Footer from './pages/shared/Footer';
 
 function App() {
   const { loading } = useContext(AuthContext);
@@ -22,8 +23,9 @@ function App() {
     <>
       <Navbar />
       <Outlet />
+      <Footer/>
       <Toaster
-        position="top-center"
+        position="right-center"
         reverseOrder={false}
       />
     </>

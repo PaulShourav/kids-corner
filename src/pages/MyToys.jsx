@@ -12,7 +12,7 @@ const MyToys = () => {
     const [update, setUpdate] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-toys/${user.email}`)
+        fetch(`https://kids-corner-server.vercel.app/my-toys/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);
@@ -29,7 +29,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteToy/${_id}`, {
+                fetch(`https://kids-corner-server.vercel.app/deleteToy/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -50,7 +50,7 @@ const MyToys = () => {
 
     }
     const handleEdit = (_id) => {
-        fetch(`http://localhost:5000/edit/${_id}`)
+        fetch(`https://kids-corner-server.vercel.app/edit/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setEditData(data);
@@ -79,7 +79,7 @@ const MyToys = () => {
                 const description=form.description.value;
                 const toy={id,name,image,sub_category,price,rating,quantity,description}
                 console.log(toy);
-                fetch(`http://localhost:5000/update/${id}`, {
+                fetch(`https://kids-corner-server.vercel.app/update/${id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -102,12 +102,12 @@ const MyToys = () => {
     }
     return (
         <section className='my-container my-28'>
-            <div className='flex items-center justify-end mb-7 '>
+            {/* <div className='flex items-center justify-end mb-7 '>
                 <input type="text" placeholder="Type here" className="input input-sm input-bordered  w-full max-w-xs" />
                 <button className="btn btn-sm btn-square btn-secondary">
                     <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
                 </button>
-            </div>
+            </div> */}
             <div className="overflow-x-auto">
                 <table className="table table-compact w-full">
                     <thead className='bg-sky-600'>

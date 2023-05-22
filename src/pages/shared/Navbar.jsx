@@ -15,7 +15,7 @@ const Navbar = () => {
             });
     }
     return (
-        <header className='bg-cyan-400'>
+        <header className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 drop-shadow-lg'>
             <div className="navbar my-container ">
                 <div className="navbar-start ">
                     <div className="dropdown">
@@ -30,7 +30,7 @@ const Navbar = () => {
                             <li><NavLink to={'/blog'} className={({ isActive }) => isActive ? "active" : ""}>Blogs</NavLink></li>
                         </ul>
                     </div>
-                    <Link to={'/'} className=" font-bold text-2xl"><FontAwesomeIcon icon="fa-solid fa-truck-monster" /> Kids Corner</Link>
+                    <Link to={'/'} className=" font-bold text-2xl"><FontAwesomeIcon icon="fa-solid fa-star-and-crescent" className='text-yellow-400' /> Kids <span className='text-yellow-400'>Corner</span> </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex gap-4 text-lg px-1  ">
@@ -45,16 +45,16 @@ const Navbar = () => {
                 <div className="navbar-end">
                 {
                             user ? <div className="dropdown dropdown-end">
-                                <label tabIndex={0} className=" tooltip tooltip-left btn btn-outline btn-secondary btn-circle avatar flex justify-center" data-tip={user.displayName && user.displayName}>
+                                <label tabIndex={0} className=" tooltip tooltip-left btn btn-outline  btn-circle avatar flex justify-center" data-tip={user.displayName && user.displayName}>
                                     <FontAwesomeIcon icon="fa-solid fa-user" className='text-base' beat />
                                 </label>
                                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
 
                                     <li><Link onClick={handleLogout}><FontAwesomeIcon icon="fa-solid fa-arrow-up-from-bracket" className='me-2' />Logout</Link></li>
                                 </ul>
-                            </div> : <div className='flex text-lg'> 
+                            </div> : <div className='flex text-white text-lg'> 
                                 <NavLink className={({ isActive }) => isActive ? 'active-link' : ''} to='/login'>Login</NavLink>
-                                <NavLink className={({ isActive }) => isActive ? 'btn btn-sm  btn-primary ms-4' : 'btn btn-sm btn-outline btn-primary ms-4'} to='/register'>Register <FontAwesomeIcon icon="fa-solid fa-user" className='ms-2' /></NavLink> 
+                                <NavLink className={({ isActive }) => isActive ? 'btn btn-sm  btn-primary ms-4' : 'btn btn-sm btn-outline  text-white ms-4'} to='/register'>Register <FontAwesomeIcon icon="fa-solid fa-user" className='ms-2' /></NavLink> 
                                 </div>
                         }
                 </div>

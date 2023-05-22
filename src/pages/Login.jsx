@@ -57,15 +57,18 @@ const Login = () => {
                 {
                     error && <p className='text-red-700 text-center'>{error}</p>
                 }
-                <form onSubmit={handleLogin} className="card-body  text-center pt-5">
+                <div className="card-body  text-center pt-5">
+                <form onSubmit={handleLogin} className='space-y-3'>
                     <input type="email" name='email' placeholder="Enter your email" className="input input-bordered input-primary w-full max-w-xs" required/>
                     <input type="password" name='password' placeholder="Password" className="input input-bordered input-primary w-full max-w-xs" required/>
-                    <button className="btn btn-primary">Login</button>
+                    <button className="btn btn-primary w-full">Login</button>
                     <div className="card-actions">
                         <Link to='/register'>Create new account?</Link>
                     </div>
                 </form>
-                    <button onClick={handleGoogleAuth} className="btn btn-primary"> Google</button>
+                    <button onClick={handleGoogleAuth} className="btn bg-gradient-to-r from-indigo-500"> <span className='font-extrabold text-xl me-2'>G</span> Google</button>
+                </div>
+               
             </div>
         </div>
 

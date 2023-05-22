@@ -6,7 +6,7 @@ const AllToys = () => {
     const [toys, setToys] = useState([]);
     const [searchTaxt, setSearchText] = useState('');
     useEffect(() => {
-        fetch('http://localhost:5000/alltoys')
+        fetch('https://kids-corner-server.vercel.app/alltoys')
             .then(res => res.json())
             .then(data => {
                 setToys(data);
@@ -14,7 +14,7 @@ const AllToys = () => {
 
     }, [])
     const handleSearch=()=>{
-        fetch(`http://localhost:5000/search/${searchTaxt}`)
+        fetch(`https://kids-corner-server.vercel.app/search/${searchTaxt}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);

@@ -22,21 +22,21 @@ const router = createBrowserRouter([
           element: <Home />,
         },
         {
-          path: "/my-toys",
-          element: <MyToys />,
+          path: "/add-toys",
+          element:<PrivateRoute><AddToys /></PrivateRoute> ,
         },
         {
           path: "/all-toys",
           element: <AllToys />,
         },
         {
-          path: "/add-toys",
-          element:<PrivateRoute><AddToys /></PrivateRoute> ,
+          path: "/my-toys",
+          element: <PrivateRoute><MyToys /></PrivateRoute>,
         },
         {
           path: "/details/:id",
           element:<PrivateRoute><ToyDetails/></PrivateRoute> ,
-          loader:({params})=>fetch(`http://localhost:5000/toy-details/${params.id}`)
+          loader:({params})=>fetch(`https://kids-corner-server.vercel.app/toy-details/${params.id}`)
         },
         {
           path: "/blog",
